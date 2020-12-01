@@ -4,39 +4,30 @@
 
 using namespace std;
 
+void autoClick() {
+	int n = 1;
+    int x{};
+    int y{};
+    mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
+    mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
+    mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
+    mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
+}
 
 int main()
 
 {
-    int n = 1;
-    int x{};
-    int y{};
-    int time; // amount of times to click
-    int done = 0; // time before completion for loops
-    int interval; // time in ms between clicks
-    cout << "Amount of times to click" << endl;
 
-    cin >> time;
+    cout << "F2 to initiate autoclicker, F10 to stop autoclicking." << endl;
 
-    cout << "How many ms should be in between clicks?" << endl;
-    cin >> interval;
+    bool spamOn;
 
-
-    while (done < time) // loops through until time is greater than done
-    {
-        Sleep(interval);
-        mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
-        mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
-        mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
-        mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
-        done++;
-    }
-
-    cout << "Auto clicking has completed." << endl;
-    string finished;
-    getline(cin, finished)
-       
-    return 0;
-
-
+	while (true) {
+    	if (GetAsyncKeyState(VK_F2))
+        	{
+            	while(!GetAsyncKeyState(VK_F10)) {
+            		autoClick();
+            }
+        }
+	}
 }
