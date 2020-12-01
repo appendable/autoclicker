@@ -23,11 +23,11 @@ int main()
     bool spamOn;
 
 	while (true) {
-    	if (GetAsyncKeyState(VK_F2))
-        	{
-            	while(!GetAsyncKeyState(VK_F10)) {
-            		autoClick();
-            }
-        }
-	}
+    if (GetAsyncKeyState(VK_F2))
+       {
+       while(!GetAsyncKeyState(VK_F10)) {
+          autoClick();
+       }
+    }
+  }
 }
